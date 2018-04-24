@@ -41,9 +41,9 @@ public class InsertServlet extends HttpServlet {
 		int result = 0;
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, "b63030007");
-			ps.setInt(2, 99);
-			ps.setInt(3, 99);
+			ps.setString(1, request.getParameter("studentid"));
+			ps.setInt(2, Integer.parseInt(request.getParameter("quiz")));
+			ps.setInt(3, Integer.parseInt(request.getParameter("exam")));
 			result = ps.executeUpdate();
 		}
 		catch (SQLException e) {

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,20 +41,23 @@ public class SelectServlet extends HttpServlet {
 		java.sql.PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String studentid = null;
-		String quiz = null;
-		String exam = null;
+		int count = 0;
+		List<String> studentid = new ArrayList<String>();
+		List<String> quiz = new ArrayList<String>();
+		List<String> exam = new ArrayList<String>();
 		
-		String sql = "select * from grade where studentid = ? limit 1";
+		
+		String sql = "select * from grade where studentid = ?";
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, "b63030007");
+			ps.setString(1, request.getParameter("studentid"));
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				studentid = rs.getString("studentid");
-				quiz = rs.getString("quiz");
-				exam = rs.getString("exam");
+				studentid.add(rs.getString("studentid"));
+				quiz.add(rs.getString("quiz"));
+				exam.add(rs.getString("exam"));
+				count++;
 			}
 		}
 		catch (SQLException e) {
@@ -60,11 +65,12 @@ public class SelectServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		String message = null;
-		if (studentid == null) {
+		if (studentid.size() ==0) {
 			message = "Select FAIL";
 		}
 		else {
-			message = "Select SUCCESS";
+			message =  count + "Select SUCCESS";
+			request.setAttribute("count", count);
 			request.setAttribute("studentid", studentid);
 			request.setAttribute("quiz", quiz);
 			request.setAttribute("exam", exam);
