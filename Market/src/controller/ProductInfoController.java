@@ -42,7 +42,8 @@ public class ProductInfoController extends HttpServlet {
 		String action = request.getParameter("action");
 		if (action.equalsIgnoreCase("list")) {
 			forward = LIST_USER;
-			request.setAttribute("productInfos", dao.getAllProducts());
+			request.setAttribute("random_productInfos", dao.randomGetAllProducts());
+			request.setAttribute("latest_productInfos", dao.getLatestProducts());
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);

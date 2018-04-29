@@ -25,10 +25,10 @@
         <div class="topBar">
             <div class="comWidth">
                 <div class="leftArea">
-                    <a href="#" class="collection">收藏慕课</a>
+                    <a href="#" class="collection">Welcome！</a>
                 </div>
-                <div class="rightArea">
-                    欢迎来到慕课网!<a href="#">[登录]</a><a href="#">[免费注册]</a>
+               <div class="rightArea">
+                   <a href="#">Where2eat</a><i>|</i><a href="login.jsp">Login</a><i>|</i><a href="register.jsp">Register</a>
                 </div>
             </div>
         </div><!--topBar结束-->
@@ -36,14 +36,14 @@
         <div class="logoBar">
             <div class="comWidth">
                 <div class="logo fl">
-                    <a href="#"><img src="${pageContext.request.contextPath }/images/logo.jpg" alt="慕课网"/></a>
+                    <a href="#"><img src="${pageContext.request.contextPath }/images/SheffieldLogo.png" width=140px height=59px alt="慕课网"/></a>
                 </div>
                 <div class="searchBox fl">
                     <input type="text" class="search_text fl" >
-                    <input type="button" value="搜索" class="search_btn fr"/>
+                    <input type="button" value="Search" class="search_btn fl"/>
                 </div>
                 <div class="shopCar fr">
-                    <span class="shopText fl">购物车</span>
+                    <span class="shopText fl">shopCar</span>
                     <span class="shopNum fl">0</span>
                 </div>
             </div>
@@ -52,31 +52,31 @@
         <div class="navBox">
             <div class="comWidth">
                 <div class="shopClass fl">
-                   <h3>全部商品分类<i></i></h3>
-                    <div class="shopClass_show">
+                   <h3>Classification<i></i></h3>
+                    <div class="shopClass_show hide2">
                         <dl class="shopClass_item">
-                            <dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-                            <dd><a href="#">荣耀</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
+                            <dt><a href="#" class="b">Commodity</a> <a href="#" class="b"></a> <a href="#" class="aLink">More</a></dt>
+                            <dd><a href="#">Clothes</a> <a href="#">Make-up</a> </dd>
                         </dl>
 
                         <dl class="shopClass_item">
-                            <dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-                            <dd><a href="#">荣耀</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
+                            <dt><a href="#" class="b">Accommodation</a> <a href="#" class="b"></a> <a href="#" class="aLink">More</a></dt>
+                            <dd><a href="#">En-suit</a> <a href="#">Studio</a> </dd>
                         </dl>
 
                         <dl class="shopClass_item">
-                            <dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-                            <dd><a href="#">荣耀</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
+                            <dt><a href="#" class="b">Electricity</a> <a href="#" class="b"></a> <a href="#" class="aLink">More</a></dt>
+                            <dd><a href="#">Washing machine</a> <a href="#">Cleaner</a></dd>
                         </dl>
 
                         <dl class="shopClass_item">
-                            <dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-                            <dd><a href="#">荣耀</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
+                            <dt><a href="#" class="b">Event</a> <a href="#" class="b"></a> <a href="#" class="aLink">More</a></dt>
+                            <dd><a href="#">Concert</a> <a href="#">Party</a></dd>
                         </dl>
 
                         <dl class="shopClass_item">
-                            <dt><a href="#" class="b">手机</a> <a href="#" class="b">数码</a> <a href="#" class="aLink">合约机</a></dt>
-                            <dd><a href="#">荣耀</a> <a href="#">单反</a> <a href="#">智能设备</a></dd>
+                            <dt><a href="#" class="b">Odds</a> <a href="#" class="b"></a> <a href="#" class="aLink">More</a></dt>
+                            <dd><a href="#">Transportation</a> <a href="#">Toy</a></dd>
                         </dl>
                     </div>
                     <div class="shopClass_list hide">
@@ -126,7 +126,7 @@
                         </div>
                     </div>
                 </div>
-                <ul class="nav fl">
+                <ul class="nav fl hide">
                     <li><a href="#" class="active">数码城</a></li>
                     <li><a href="#">天黑黑</a></li>
                     <li><a href="#">团购</a></li>
@@ -151,7 +151,7 @@
         </div>
     </div>
     -->
-    <div class="banner comWidth clearfix" id="banner_id_1">
+    <div class="banner comWidth clearfix id="banner_id_1">
     <div class="banner_bar banner_big">
         <ul class="imgBox">
             <li><a href="#"><img src="${pageContext.request.contextPath }/banner/banner_01.gif" alt="banner" id="bannerImg1"></a></li>
@@ -238,8 +238,8 @@
 </script>
     <div class="shopTit comWidth">
         <span class="icon"></span>
-        <h3>家用电脑</h3>
-        <a href="#" class="more">更多>></a>
+        <h3>Random List</h3>
+        <a href="#" class="more">More>></a>
     </div>
     <div class="shopList comWidth clearfix">
         <div class="leftArea">
@@ -261,7 +261,7 @@
         	-->
         	
             <div class="shopList_top ">
-            	<c:forEach items="${productInfos}" var="productInfo" begin="1" end="4" step="1"> 
+            	<c:forEach items="${random_productInfos}" var="productInfo" begin="1" end="4" step="1"> 
         			<div class="shop_item">
                     	<div class="shop_img">
                         	<a href="#"><img src="${productInfo.getProductPicture() }" alt="手机图片"></a>
@@ -272,7 +272,7 @@
         		</c:forEach>
             </div>
             <div class="shopList_sm clearfix">
-            	<c:forEach items="${productInfos}" var="productInfo" begin="1" end="4" step="1"> 
+            	<c:forEach items="${random_productInfos}" var="productInfo" begin="1" end="4" step="1"> 
         			<div class="shopItem_sm">
                     	<div class="shopItem_smImg">
                         	<a href="#"><img src="${productInfo.getSellerPicture() }"></a>
@@ -288,13 +288,14 @@
     </div>
     <div class="shopTit comWidth">
         <span class="icon"></span>
-        <h3>家用电脑</h3>
-        <a href="#" class="more">更多>></a>
+        <h3>Latest update</h3>
+        <a href="#" class="more">More>></a>
     </div>
     <div class="shopList comWidth clearfix">
         <div class="leftArea">
             <div class="banner_bar banner_sm">
                 <ul class="imgBox">
+                
                     <li><a href="#"><img src="${pageContext.request.contextPath }/banner/banner_sm_01.png"></a></li>
                     <li><a href="#"><img src="${pageContext.request.contextPath }/banner/food_banner_sm_01.png"></a></li>
                 </ul>
@@ -305,83 +306,39 @@
             </div>
         </div>
         <div class="rightArea">
+        	<!--  
+        		<div>${productInfos}</div>
+        	-->
+        	
             <div class="shopList_top ">
-                <div class="shop_item">
-                    <div class="shop_img">
-                        <a href="#"><img src="${pageContext.request.contextPath }/images/shopImg.png" alt="手机图片"></a>
-                    </div>
-                    <h3>HTC新渴望8系列</h3>
-                    <p>1899元</p>
-                </div>
-                <div class="shop_item">
-                    <div class="shop_img">
-                        <a href="#"><img src="${pageContext.request.contextPath }/images/shopImg.png" alt="手机图片"></a>
-                    </div>
-                    <h3>HTC新渴望8系列</h3>
-                    <p>1899元</p>
-                </div>
-                <div class="shop_item">
-                    <div class="shop_img">
-                        <a href="#"><img src="${pageContext.request.contextPath }/images/shopImg.png" alt="手机图片"></a>
-                    </div>
-                    <h3>HTC新渴望8系列</h3>
-                    <p>1899元</p>
-                </div>
-                <div class="shop_item">
-                    <div class="shop_img">
-                        <a href="#"><img src="${pageContext.request.contextPath }/images/shopImg.png" alt="手机图片"></a>
-                    </div>
-                    <h3>HTC新渴望8系列</h3>
-                    <p>1899元</p>
-                </div>
+            	<c:forEach items="${latest_productInfos}" var="productInfo" begin="1" end="4" step="1"> 
+        			<div class="shop_item">
+                    	<div class="shop_img">
+                        	<a href="#"><img src="${productInfo.getProductPicture() }" alt="手机图片"></a>
+                    	</div>
+                    	<h3>${productInfo.getProductName() }</h3>
+                    	<p>${productInfo.getProductPrice() }</p>
+                	</div>
+        		</c:forEach>
             </div>
             <div class="shopList_sm clearfix">
-                <div class="shopItem_sm">
-                    <div class="shopItem_smImg">
-                        <a href="#"><img src="${pageContext.request.contextPath }/images/shopImg.png"></a>
-                    </div>
-                    <div class="shopItem_text">
-                        <p>NFC技术一碰轻松
-                            配对！接触屏幕</p>
-                        <h3>￥194.00</h3>
-                    </div>
-                </div>
-                <div class="shopItem_sm">
-                    <div class="shopItem_smImg">
-                        <a href="#"><img src="${pageContext.request.contextPath }/images/shopImg.png"></a>
-                    </div>
-                    <div class="shopItem_text">
-                        <p>NFC技术一碰轻松
-                            配对！接触屏幕</p>
-                        <h3>￥194.00</h3>
-                    </div>
-                </div>
-                <div class="shopItem_sm">
-                    <div class="shopItem_smImg">
-                        <a href="#"><img src="${pageContext.request.contextPath }/images/shopImg.png"></a>
-                    </div>
-                    <div class="shopItem_text">
-                        <p>NFC技术一碰轻松
-                            配对！接触屏幕</p>
-                        <h3>￥194.00</h3>
-                    </div>
-                </div>
-                <div class="shopItem_sm">
-                    <div class="shopItem_smImg">
-                        <a href="#"><img src="${pageContext.request.contextPath }/images/shopImg.png"></a>
-                    </div>
-                    <div class="shopItem_text">
-                        <p>NFC技术一碰轻松
-                            配对！接触屏幕</p>
-                        <h3>￥194.00</h3>
-                    </div>
-                </div>
+            	<c:forEach items="${latest_productInfos}" var="productInfo" begin="1" end="4" step="1"> 
+        			<div class="shopItem_sm">
+                    	<div class="shopItem_smImg">
+                        	<a href="#"><img src="${productInfo.getSellerPicture() }"></a>
+                    	</div>
+                    	<div class="shopItem_text">
+                   			<p>${productInfo.getSellerName() }</p>
+                        	<h3>${productInfo.getSellerAddress() }</h3>
+                    	</div>
+                	</div>
+        		</c:forEach>
             </div>
         </div>
     </div>
     <div class="footer">
-        <p><a href="#">慕课简介</a><i>|</i><a href="#">慕课公告</a><i>|</i> <a href="#">招纳贤士</a><i>|</i> <a href="#">联系我们</a><i>|</i>客服热线：400-675-1234</p>
-        <p>Copyright &copy; 2006 - 2014 慕课版权所有&nbsp;&nbsp;&nbsp;京ICP备09037834号&nbsp;&nbsp;&nbsp;京ICP证B1034-8373号&nbsp;&nbsp;&nbsp;某市公安局XX分局备案编号：123456789123</p>
+       	 <p><a href="#">Feedback</a><i>|</i><a href="#">Privacy & Website Policies</a><i>|</i> <a href="#">Terms & Conditions</a><i>|</i> <a href="#">About us</a><i>|</i>Telepphone：400-675-1234</p>
+   		 <p>Copyright &copy; GreenMarket</p>
     </div>
 </body>
 </html>

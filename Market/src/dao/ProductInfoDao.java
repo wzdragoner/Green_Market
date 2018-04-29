@@ -21,15 +21,42 @@ public class ProductInfoDao {
 		connection = DbUtil.getConnection();
 	}
 	
-	public List<ProductInfo> getAllProducts() {
-		System.out.println("getAllProducts");
+	public List<ProductInfo> getLatestProducts() {
+		System.out.println("getLatestProducts");
 		List<ProductInfo> productInfos = new ArrayList<ProductInfo>();
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("select * from product_info");
+			ResultSet rs = statement.executeQuery("SELECT * FROM `product_info` ORDER BY product_id desc;");
 			while (rs.next()) {
 				ProductInfo productInfo = new ProductInfo();
 
+				productInfo.setProductId(rs.getInt(1));
+				productInfo.setProductName(rs.getString(2));
+				productInfo.setProductPicture(rs.getString(4));
+				productInfo.setProductPrice(rs.getString(3));
+				productInfo.setSellerPicture(rs.getString(5));
+				productInfo.setSellerAddress(rs.getString(7));
+				productInfo.setSellerName(rs.getString(6));
+				productInfos.add(productInfo);
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		System.out.println(productInfos);
+		return productInfos;
+	}
+	
+	
+	public List<ProductInfo> randomGetAllProducts() {
+		System.out.println("randomGetAllProducts");
+		List<ProductInfo> productInfos = new ArrayList<ProductInfo>();
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM `product_info` ORDER BY RAND();");
+			while (rs.next()) {
+				ProductInfo productInfo = new ProductInfo();
 				productInfo.setProductId(rs.getInt(1));
 				productInfo.setProductName(rs.getString(2));
 				productInfo.setProductPicture(rs.getString(4));

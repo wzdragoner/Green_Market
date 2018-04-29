@@ -18,7 +18,7 @@
                     <a href="#" class="collection">收藏慕课</a>
                 </div>
                 <div class="rightArea">
-                    欢迎来到慕课网!<a href="#">[登录]</a><a href="#">[免费注册]</a>
+                   <a href="#">Where2eat</a><i>|</i><a href="#">Index</a><i>|</i><a href="#">My Page</a>
                 </div>
             </div>
         </div><!--topBar结束-->
@@ -26,9 +26,9 @@
         <div class="logoBar red_logo">
             <div class="comWidth">
                 <div class="logo fl">
-                    <a href="#"><img src="${pageContext.request.contextPath }/images/logo.jpg" alt="慕课网"/></a>
+                    <a href="#"><img src="${pageContext.request.contextPath }/images/SheffieldLogo.png"  width=140px height=59px alt="慕课网"/></a>
                 </div>
-                <h3 class="welcome_title">欢迎注册</h3>
+                <h3 class="welcome_title">Welcome to registration</h3>
             </div>
         </div><!--logoBar结束-->
     </div><!--headerBar结束-->
@@ -38,10 +38,10 @@
         	<form method="post" action='UserInfoController' name="adduser">
             	<ul class="login">
             	<li>
-                	<span class="reg_item">
+                	<span class="reg_item hide">
                 		<i>*</i>id:
                 	</span>
-                	<div class="input_item">
+                	<div class="input_item hide">
                 		<input type="text" 
                 			class="login_input user_icon" 
                 			name="user_id"
@@ -52,7 +52,7 @@
                 </li>
                 <li>
                 	<span class="reg_item">
-                		<i>*</i>用户名:
+                		<i>*</i>Username:
                 	</span>
                 	<div class="input_item">
                 		<input type="text" 
@@ -64,7 +64,7 @@
                 </li>
                 <li>
                 	<span class="reg_item">
-                		<i>*</i>密码:
+                		<i>*</i>Password:
                 	</span>
                 	<div class="input_item">
                 		<input type="text" 
@@ -74,9 +74,12 @@
                 		/>
                 	</div>
                 </li>
+                
+                <li><span class="reg_item"><i>*</i>ConfirmPas:</span><div class="input_item"><input type="text" class="login_input user_icon"/></div></li>
+                
                 <li>
                 	<span class="reg_item">
-                		<i>*</i>邮箱:
+                		<i>*</i>E-mail:
                 	</span>
                 	<div class="input_item">
                 		<input type="text" 
@@ -88,7 +91,7 @@
                 </li>
                 <li>
                 	<span class="reg_item">
-                		<i>*</i>地址:
+                		<i>*</i>Address:
                 	</span>
                 	<div class="input_item">
                 		<input type="text" 
@@ -100,7 +103,7 @@
                 </li>
                 <li>
                 	<span class="reg_item">
-                		<i>*</i>电话:
+                		<i>*</i>Telephone:
                 	</span>
                 	<div class="input_item">
                 		<input type="text" 
@@ -110,8 +113,8 @@
                 		/>
                 	</div>
                 </li>
-                <li class="autoLogin"><span class="reg_item"><i>&nbsp;</i></span><input type="checkbox" class="checked" id="t1"/><label for="t1">我已阅读并同意</label></li>
-                <li><span class="reg_item"><i>&nbsp;</i></span><input type="submit" value="" class="login_btn"/></li>
+                <li class="autoLogin"><span class="reg_item"><i>&nbsp;</i></span><input type="checkbox" class="checked" id="t1"/><label for="t1">I agree with condition</label></li>
+                <li><input type="button" value="" /><button class="login-btn">Submit</button></li>
             </ul>
             </form>
             
@@ -120,8 +123,8 @@
     </div>
     <div class="hr_15"></div>
     <div class="footer">
-        <p><a href="#">慕课简介</a><i>|</i><a href="#">慕课公告</a><i>|</i> <a href="#">招纳贤士</a><i>|</i> <a href="#">联系我们</a><i>|</i>客服热线：400-675-1234</p>
-        <p>Copyright &copy; 2006 - 2014 慕课版权所有&nbsp;&nbsp;&nbsp;京ICP备09037834号&nbsp;&nbsp;&nbsp;京ICP证B1034-8373号&nbsp;&nbsp;&nbsp;某市公安局XX分局备案编号：123456789123</p>
+        <p><a href="#">Feedback</a><i>|</i><a href="#">Privacy & Website Policies</a><i>|</i> <a href="#">Terms & Conditions</a><i>|</i> <a href="#">About us</a><i>|</i>Telepphone：400-675-1234</p>
+        <p>Copyright &copy; GreenMarket</p>
     </div>
 </body>
 </html>
