@@ -274,7 +274,7 @@
 								<a href="#">${productInfo.getProductName() } &nbsp type:
 									${productInfo.getProductType() }</a>
 							</p>
-							<p class="money">￥${productInfo.getProductPrice() }</p>
+							<p class="money">£${productInfo.getProductPrice() }</p>
 							<p class="addCar">
 								<a href="#">add car</a>
 							</p>

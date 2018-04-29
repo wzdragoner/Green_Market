@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>login.jsp</title>
-<link href="../css/main.css" rel="stylesheet" type="text/css" />
-<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/main.css"
+	rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/reset.css"
+	rel="stylesheet" type="text/css" />
 
 </head>
 <body class="grey">
@@ -14,10 +18,11 @@
 		<div class="topBar">
 			<div class="comWidth">
 				<div class="leftArea">
-					<a href="#" class="collection">收藏慕课</a>
+					<a href="#" class="collection">Welcome！</a>
 				</div>
 				<div class="rightArea">
-					欢迎来到慕课网!<a href="#">[登录]</a><a href="#">[免费注册]</a>
+					<a href="#">Where2eat</a><i>|</i><a href="login.jsp">Login</a><i>|</i><a
+						href="register.jsp">Register</a>
 				</div>
 			</div>
 		</div>
@@ -26,14 +31,16 @@
 		<div class="logoBar">
 			<div class="comWidth">
 				<div class="logo fl">
-					<a href="#"><img src="../images/logo.jpg" alt="慕课网" /></a>
+					<a href="#"><img
+						src="${pageContext.request.contextPath }/images/SheffieldLogo.png"
+						width=140px height=59px alt="慕课网" /></a>
 				</div>
 				<div class="searchBox fl">
 					<input type="text" class="search_text fl"> <input
-						type="button" value="搜索" class="search_btn fr" />
+						type="button" value="Search" class="search_btn fr" />
 				</div>
 				<div class="shopCar fr">
-					<span class="shopText fl">购物车</span> <span class="shopNum fl">0</span>
+					<span class="shopText fl">shopCar车</span> <span class="shopNum fl">0</span>
 				</div>
 			</div>
 		</div>
@@ -43,7 +50,7 @@
 			<div class="comWidth">
 				<div class="shopClass fl">
 					<h3>
-						全部商品分类<i></i>
+						全部Classification分类<i></i>
 					</h3>
 					<div class="shopClass_show hide">
 						<dl class="shopClass_item">
@@ -155,7 +162,7 @@
 						</div>
 					</div>
 				</div>
-				<ul class="nav fl">
+				<ul class="nav fl hide">
 					<li><a href="#" class="active">数码城</a></li>
 					<li><a href="#">天黑黑</a></li>
 					<li><a href="#">团购</a></li>
@@ -363,16 +370,15 @@
 						<h3>强烈推荐</h3>
 						<h4>货比三家，还选</h4>
 					</div>
-					<p>现在就是买mini的好时候！换代清仓直降，但苹果品质不变！A5双核，内置Lightning闪电接口，正反可插，方便人性。小身材，炫丽的7.9英寸显示屏，7.2mm的厚度，薄如铅笔。女生包包随身携带更时尚！facetime视频通话，与密友24小时畅聊不断线。微信倾力打造，你的智能助理。苹果的牌子就不用我说了，1111补仓，存货不多哦！</p>
-					<div class="hr_15"></div>
-					<div class="info_tit">
-						<h3>强烈推荐</h3>
-						<h4>货比三家，还选</h4>
-					</div>
-					<p>现在就是买mini的好时候！换代清仓直降，但苹果品质不变！A5双核，内置Lightning闪电接口，正反可插，方便人性。小身材，炫丽的7.9英寸显示屏，7.2mm的厚度，薄如铅笔。女生包包随身携带更时尚！facetime视频通话，与密友24小时畅聊不断线。微信倾力打造，你的智能助理。苹果的牌子就不用我说了，1111补仓，存货不多哦！</p>
-					<div class="hr_15"></div>
-					<img src="../images/pad.jpg" class="center">
-					<div class="hr_15"></div>
+
+					<c:forEach items="${productPictures}" var="productPicture">
+						<img src="${productPicture}" class="center">
+						<div class="hr_15"></div>
+					</c:forEach>
+					<c:forEach items="${productInfos}" var="productInfo">
+						<p>"${productInfo}"</p>
+						<div class="hr_15"></div>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="hr_15"></div>

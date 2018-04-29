@@ -371,8 +371,9 @@ img {
 					begin="1" end="4" step="1">
 					<div class="shop_item">
 						<div class="shop_img">
-							<a href="#"><img src="${productInfo.getProductPicture() }"
-								alt="手机图片"></a>
+							<a
+								href="../ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
+								src="${productInfo.getProductPicture() }" alt="手机图片"></a>
 						</div>
 						<h3>${productInfo.getProductName() }</h3>
 						<p>${productInfo.getProductPrice() }</p>
@@ -384,7 +385,9 @@ img {
 					begin="1" end="4" step="1">
 					<div class="shopItem_sm">
 						<div class="shopItem_smImg">
-							<a href="#"><img src="${productInfo.getSellerPicture() }"></a>
+							<a
+								href="../ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
+								src="${productInfo.getSellerPicture() }"></a>
 						</div>
 						<div class="shopItem_text">
 							<p>${productInfo.getSellerName() }</p>
@@ -425,8 +428,9 @@ img {
 					begin="1" end="4" step="1">
 					<div class="shop_item">
 						<div class="shop_img">
-							<a href="#"><img src="${productInfo.getProductPicture() }"
-								alt="手机图片"></a>
+							<a
+								href="../ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
+								src="${productInfo.getProductPicture() }" alt="手机图片"></a>
 						</div>
 						<h3>${productInfo.getProductName() }</h3>
 						<p>${productInfo.getProductPrice() }</p>
@@ -438,7 +442,9 @@ img {
 					begin="1" end="4" step="1">
 					<div class="shopItem_sm">
 						<div class="shopItem_smImg">
-							<a href="#"><img src="${productInfo.getSellerPicture() }"></a>
+							<a
+								href="../ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
+								src="${productInfo.getSellerPicture() }"></a>
 						</div>
 						<div class="shopItem_text">
 							<p>${productInfo.getSellerName() }</p>

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:forward page="/UserInfoController?action=list" />
+	<jsp:forward page="/ProductDetailController?action=list&product_id=2" />
 </body>
 </html>
