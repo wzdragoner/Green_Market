@@ -20,7 +20,8 @@ import model.ProductInfo;
 public class ProductInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String INSERT_OR_EDIT = "pages/register.jsp";
-    private static String LIST_USER = "pages/index.jsp";
+    private static String LIST_INDEX = "pages/index.jsp";
+    private static String LIST_FILTER = "pages/filter.jsp";
     private ProductInfoDao dao;   
     /**
      * @see HttpServlet#HttpServlet()
@@ -41,9 +42,17 @@ public class ProductInfoController extends HttpServlet {
 		String forward = "";
 		String action = request.getParameter("action");
 		if (action.equalsIgnoreCase("list")) {
-			forward = LIST_USER;
+			forward = LIST_INDEX;
 			request.setAttribute("random_productInfos", dao.randomGetAllProducts());
 			request.setAttribute("latest_productInfos", dao.getLatestProducts());
+		}
+		else if (action.equalsIgnoreCase("filterlist")) {
+			forward = LIST_FILTER;
+			request.setAttribute("productInfos", dao.getAllProducts());
+		}
+		else if (action.equalsIgnoreCase("p_type")) {
+			forward = LIST_FILTER;
+			request.setAttribute("productInfos", dao.getAllProductsByType(request.getParameter("product_type")));
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);

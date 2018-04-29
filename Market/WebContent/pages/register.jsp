@@ -35,7 +35,7 @@
 
     <div class="regBox">
         <div class="login_cont">
-        	<form method="post" action='UserInfoController' name="adduser">
+        	<form method="post" action='/Market/UserInfoController' name="adduser">
             	<ul class="login">
             	<li>
                 	<span class="reg_item hide">

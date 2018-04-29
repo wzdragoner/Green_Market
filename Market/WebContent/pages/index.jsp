@@ -29,7 +29,7 @@
                 </div>
                <div class="rightArea">
                    <a href="#">Where2eat</a><i>|</i><a href="login.jsp">Login</a><i>|</i><a href="register.jsp">Register</a>
-                </div>
+               </div>
             </div>
         </div><!--topBar结束-->
 

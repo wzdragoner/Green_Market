@@ -1586,13 +1586,12 @@
 
 }
 .products_list .item {
-    width: 20%;
     float: left;
     margin-bottom: 20px;
     position: relative;
 }
 .products_list .item p {
-    padding-left: 15px;
+    padding-left: 35px;
 }
 .products_list .img_item {
     height: 170px;
@@ -1600,8 +1599,7 @@
     padding-top: 12px;
 }
 .products_list .img_item img {
-    height: 160px;
-    width: 150px;
+    width: 230px;
 }
 .products_list .item p {
     line-height: 20px;

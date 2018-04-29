@@ -12,6 +12,7 @@ public class ProductInfo {
 	private String sellerPicture;
 	private String sellerName;
 	private String sellerAddress;
+	private String productType;
 	public int getProductId() {
 		return productId;
 	}
@@ -54,11 +55,17 @@ public class ProductInfo {
 	public void setSellerAddress(String sellerAddress) {
 		this.sellerAddress = sellerAddress;
 	}
+	public String getProductType() {
+		return productType;
+	}
+	public void setProductType(String productType) {
+		this.productType = productType;
+	}
 	@Override
 	public String toString() {
 		return "ProductInfo [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
 				+ ", productPicture=" + productPicture + ", sellerPicture=" + sellerPicture + ", sellerName="
-				+ sellerName + ", sellerAddress=" + sellerAddress + "]";
+				+ sellerName + ", sellerAddress=" + sellerAddress + ", productType=" + productType + "]";
 	}
 	
 	
