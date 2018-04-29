@@ -17,19 +17,20 @@ import util.DbUtil;
 
 public class ProductInfoDao {
 	private Connection connection;
+
 	public ProductInfoDao() {
 		connection = DbUtil.getConnection();
 	}
-	
+
 	public List<ProductInfo> getAllProductsByType(String product_type) {
 		System.out.println("getAllProductsByType");
 		List<ProductInfo> productInfos = new ArrayList<ProductInfo>();
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(
-					"select * from product_info where product_type = ?");
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from product_info where product_type = ?");
 			preparedStatement.setString(1, product_type);
 			ResultSet rs = preparedStatement.executeQuery();
-			
+
 			while (rs.next()) {
 				ProductInfo productInfo = new ProductInfo();
 				productInfo.setProductId(rs.getInt(1));
@@ -50,6 +51,7 @@ public class ProductInfoDao {
 		System.out.println(productInfos);
 		return productInfos;
 	}
+
 	public List<ProductInfo> getAllProducts() {
 		System.out.println("getAllProducts");
 		List<ProductInfo> productInfos = new ArrayList<ProductInfo>();
@@ -76,7 +78,7 @@ public class ProductInfoDao {
 		System.out.println(productInfos);
 		return productInfos;
 	}
-	
+
 	public List<ProductInfo> getLatestProducts() {
 		System.out.println("getLatestProducts");
 		List<ProductInfo> productInfos = new ArrayList<ProductInfo>();
@@ -103,8 +105,7 @@ public class ProductInfoDao {
 		System.out.println(productInfos);
 		return productInfos;
 	}
-	
-	
+
 	public List<ProductInfo> randomGetAllProducts() {
 		System.out.println("randomGetAllProducts");
 		List<ProductInfo> productInfos = new ArrayList<ProductInfo>();

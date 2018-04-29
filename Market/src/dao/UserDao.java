@@ -33,11 +33,10 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void deleteUser(int userId) {
 		try {
-			PreparedStatement preparedStatement = connection
-					.prepareStatement("delete from users where userid=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("delete from users where userid=?");
 			// Parameters start with 1
 			preparedStatement.setInt(1, userId);
 			preparedStatement.executeUpdate();
@@ -46,12 +45,11 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateUser(User user) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update users set firstname=?, lastname=?, dob=?, email=?" +
-							"where userid=?");
+					.prepareStatement("update users set firstname=?, lastname=?, dob=?, email=?" + "where userid=?");
 			// Parameters start with 1
 			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
@@ -86,15 +84,14 @@ public class UserDao {
 
 		return users;
 	}
-	
+
 	public User getUserById(int userId) {
 		User user = new User();
 		try {
-			PreparedStatement preparedStatement = connection.
-					prepareStatement("select * from users where userid=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("select * from users where userid=?");
 			preparedStatement.setInt(1, userId);
 			ResultSet rs = preparedStatement.executeQuery();
-			
+
 			if (rs.next()) {
 				user.setUserid(rs.getInt("userid"));
 				user.setFirstName(rs.getString("firstname"));

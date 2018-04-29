@@ -15,11 +15,12 @@ import util.DbUtil;
 
 public class UserInfoDao {
 	private Connection connection;
+
 	public UserInfoDao() {
 		connection = DbUtil.getConnection();
 	}
-	
-	//addUserInfo
+
+	// addUserInfo
 	public void addUserInfo(UserInfo userInfo) {
 		System.out.println("addUserInfo");
 
@@ -32,20 +33,19 @@ public class UserInfoDao {
 			preparedStatement.setString(4, userInfo.getUserAdd());
 			preparedStatement.setString(5, userInfo.getUserTel());
 			preparedStatement.executeUpdate();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	//deleteUserInfo
-	
+
+	// deleteUserInfo
+
 	public void deleteUserInfo(int user_id) {
 		System.out.println("deleteUserInfo");
 
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(
-					"delete from user_info where user_id = ?");
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("delete from user_info where user_id = ?");
 			preparedStatement.setInt(1, user_id);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -53,14 +53,15 @@ public class UserInfoDao {
 			e.printStackTrace();
 		}
 	}
-	
-	//updateUserInfo
+
+	// updateUserInfo
 	public void updateUserInfo(UserInfo userInfo) {
 		System.out.println("updateUserInfo");
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"update user_info set user_name = ?, user_password = ?, user_mail = ?, user_add = ?, user_tel = ?" + "where user_id=?");
+					"update user_info set user_name = ?, user_password = ?, user_mail = ?, user_add = ?, user_tel = ?"
+							+ "where user_id=?");
 			preparedStatement.setString(1, userInfo.getUserName());
 			preparedStatement.setString(2, userInfo.getUserPassword());
 			preparedStatement.setString(3, userInfo.getUserMail());
@@ -73,8 +74,8 @@ public class UserInfoDao {
 			e.printStackTrace();
 		}
 	}
-	
-	//getAllUserInfo
+
+	// getAllUserInfo
 	public List<UserInfo> getAllUsers() {
 		System.out.println("getAllUsers");
 
@@ -100,15 +101,15 @@ public class UserInfoDao {
 		return userInfos;
 
 	}
-	
-	//getUserInfoById
+
+	// getUserInfoById
 	public UserInfo getUserInfoById(int user_id) {
 		System.out.println("getUserInfoById");
 
 		UserInfo userInfo = new UserInfo();
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(
-					"select * from user_info where user_id = ?");
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from user_info where user_id = ?");
 			preparedStatement.setInt(1, user_id);
 			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()) {

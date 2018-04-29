@@ -20,22 +20,25 @@ import model.ProductInfo;
 public class ProductInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String INSERT_OR_EDIT = "pages/register.jsp";
-    private static String LIST_INDEX = "pages/index.jsp";
-    private static String LIST_FILTER = "pages/filter.jsp";
-    private ProductInfoDao dao;   
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ProductInfoController() {
-        super();
-        // TODO Auto-generated constructor stub
-        dao = new ProductInfoDao();
-    }
+	private static String LIST_INDEX = "pages/index.jsp";
+	private static String LIST_FILTER = "pages/filter.jsp";
+	private ProductInfoDao dao;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ProductInfoController() {
+		super();
+		// TODO Auto-generated constructor stub
+		dao = new ProductInfoDao();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("doGet");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -45,12 +48,10 @@ public class ProductInfoController extends HttpServlet {
 			forward = LIST_INDEX;
 			request.setAttribute("random_productInfos", dao.randomGetAllProducts());
 			request.setAttribute("latest_productInfos", dao.getLatestProducts());
-		}
-		else if (action.equalsIgnoreCase("filterlist")) {
+		} else if (action.equalsIgnoreCase("filterlist")) {
 			forward = LIST_FILTER;
 			request.setAttribute("productInfos", dao.getAllProducts());
-		}
-		else if (action.equalsIgnoreCase("p_type")) {
+		} else if (action.equalsIgnoreCase("p_type")) {
 			forward = LIST_FILTER;
 			request.setAttribute("productInfos", dao.getAllProductsByType(request.getParameter("product_type")));
 		}
@@ -59,9 +60,11 @@ public class ProductInfoController extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

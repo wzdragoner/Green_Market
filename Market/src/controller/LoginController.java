@@ -23,28 +23,33 @@ import model.UserInfo;
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String INDEX = "pages/indexStarter.jsp";
-    private UserInfoDao dao;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginController() {
-        super();
-        // TODO Auto-generated constructor stub
-        dao = new UserInfoDao();
-    }
+	private UserInfoDao dao;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public LoginController() {
+		super();
+		// TODO Auto-generated constructor stub
+		dao = new UserInfoDao();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		UserInfo userInfo = new UserInfo();
@@ -59,9 +64,11 @@ public class LoginController extends HttpServlet {
 		System.out.println(list);
 		PrintWriter out = response.getWriter();
 		for (UserInfo userInfo2 : list) {
-			System.out.println(userInfo.getUserName().equals(userInfo2.getUserName()) && userInfo.getUserPassword().equals(userInfo2.getUserPassword()));
+			System.out.println(userInfo.getUserName().equals(userInfo2.getUserName())
+					&& userInfo.getUserPassword().equals(userInfo2.getUserPassword()));
 			System.out.println("hahaha");
-			if (userInfo.getUserName().equals(userInfo2.getUserName()) && userInfo.getUserPassword().equals(userInfo2.getUserPassword())) {
+			if (userInfo.getUserName().equals(userInfo2.getUserName())
+					&& userInfo.getUserPassword().equals(userInfo2.getUserPassword())) {
 				request.getSession().setAttribute("user", userInfo);
 				RequestDispatcher view = request.getRequestDispatcher(INDEX);
 				view.forward(request, response);
