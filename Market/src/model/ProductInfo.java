@@ -13,6 +13,7 @@ public class ProductInfo {
 	private String sellerName;
 	private String sellerAddress;
 	private String productType;
+	private String productDescription;
 
 	public int getProductId() {
 		return productId;
@@ -82,7 +83,16 @@ public class ProductInfo {
 	public String toString() {
 		return "ProductInfo [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
 				+ ", productPicture=" + productPicture + ", sellerPicture=" + sellerPicture + ", sellerName="
-				+ sellerName + ", sellerAddress=" + sellerAddress + ", productType=" + productType + "]";
+				+ sellerName + ", sellerAddress=" + sellerAddress + ", productType=" + productType
+				+ ", productDescription=" + productDescription + "]";
+	}
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
 	}
 
 }

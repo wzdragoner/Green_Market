@@ -2,43 +2,20 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Mypage.jsp</title>
-<link href="${pageContext.request.contextPath }/css/main.css"
+<link href="<%=basePath%>/css/main.css"
 	rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath }/css/reset.css"
+<link href="<%=basePath%>/css/reset.css"
 	rel="stylesheet" type="text/css" />
-<style>
-#d1 {
-	display: block;
-	z-index: 4;
-}
-
-#d2 {
-	display: block;
-	z-index: 3;
-}
-
-#d3 {
-	display: block;
-	z-index: 3;
-}
-
-#d1:target {
-	z-index: 5;
-}
-
-#d2:target {
-	z-index: 5;
-}
-
-#d3:target {
-	z-index: 5;
-}
-</style>
 </head>
 <body>
 	<div class="headerBar">
@@ -59,8 +36,8 @@
 			<div class="comWidth">
 				<div class="logo fl">
 					<a href="#"><img
-						src="${pageContext.request.contextPath }/images/SheffieldLogo.png"
-						width=140px height=59px alt="慕课网" /></a>
+						src="<%=basePath%>/images/SheffieldLogo.png"
+						width=140px height=59px alt="" /></a>
 				</div>
 				<h3 class="welcome_title">My Page</h3>
 			</div>
@@ -71,41 +48,13 @@
 
 	<div class="regBox">
 		<div class="show_mydetail_top_button_1">
-			<a href="#d1">My Details</a>
+			<a href="#d1"></a>
 		</div>
-		<div class="show_mydetail_top_button ">
-			<a href="#d2">Purchase History</a>
+		<div class="show_mydetail_top_button_1">
+			<a href="#d1">My shop history</a>
 		</div>
-		<div class="show_mydetail_top_button ">
-			<a href="#d3">My stuff</a>
-		</div>
-		<div class="login_cont " id="d1">
-			<ul class="login">
-				<li>&nbsp</li>
-				<li><span class="reg_item"><i>*</i>Username:</span>
-					<div class="input_item">
-						<input type="text" name="country" value="" readonly="readonly" />
-					</div></li>
-				<li><span class="reg_item"><i>*</i>Password:</span>
-					<div class="input_item">
-						<input type="text" name="country" value="" readonly="readonly" />
-					</div></li>
-				<li><span class="reg_item"><i>*</i>E-mail:</span>
-					<div class="input_item">
-						<input type="text" name="country" value="" readonly="readonly" />
-					</div></li>
-				<li><span class="reg_item"><i>*</i>Address:</span>
-					<div class="input_item">
-						<input type="text" name="country" value="" readonly="readonly" />
-					</div></li>
-				<li><span class="reg_item"><i>*</i>Telephone:</span>
-					<div class="input_item">
-						<input type="text" name="country" value="" readonly="readonly" />
-					</div></li>
-				<li>
-					<button class="login-btn">Change Details</button>
-				</li>
-			</ul>
+		<div class="show_mydetail_top_button_1">
+		
 		</div>
 
 		<div class="login_cont" id="d2">
@@ -153,8 +102,7 @@
 
 
 
-		<div class="login_cont" id="d3"></div>
-
+		
 		<div class="hr_15"></div>
 		<div class="footer">
 			<p>

@@ -2,6 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,15 +36,17 @@
 					<td><c:out value="${userInfo.getUserAdd()}" /></td>
 					<td><c:out value="${userInfo.getUserTel()}" /></td>
 					<td><a
-						href="../UserInfoController?action=edit&user_id=<c:out value="${userInfo.getUserId()}"/>">Update</a></td>
+						href="<%=basePath%>/UserInfoController?action=edit&user_id=<c:out value="${userInfo.getUserId()}"/>">Update</a></td>
 					<td><a
-						href="../UserInfoController?action=delete&user_id=<c:out value="${userInfo.getUserId()}"/>">Delete</a></td>
+						href="<%=basePath%>/UserInfoController?action=delete&user_id=<c:out value="${userInfo.getUserId()}"/>">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	<p>
-		<a href="../UserInfoController?action=insert">Add User</a>
+		<a
+			href="<%=basePath%>/UserInfoController?action=insert">Add
+			User</a>
 	</p>
 </body>
 </html>

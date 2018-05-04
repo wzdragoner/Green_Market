@@ -21,7 +21,7 @@ public class ProductInfoDao {
 	public ProductInfoDao() {
 		connection = DbUtil.getConnection();
 	}
-
+	//getAllProductsByType
 	public List<ProductInfo> getAllProductsByType(String product_type) {
 		System.out.println("getAllProductsByType");
 		List<ProductInfo> productInfos = new ArrayList<ProductInfo>();
@@ -52,12 +52,13 @@ public class ProductInfoDao {
 		return productInfos;
 	}
 
+	//getAllProducts
 	public List<ProductInfo> getAllProducts() {
 		System.out.println("getAllProducts");
 		List<ProductInfo> productInfos = new ArrayList<ProductInfo>();
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM `product_info`;");
+			ResultSet rs = statement.executeQuery("select * from product_info;");
 			while (rs.next()) {
 				ProductInfo productInfo = new ProductInfo();
 				productInfo.setProductId(rs.getInt(1));
@@ -79,6 +80,7 @@ public class ProductInfoDao {
 		return productInfos;
 	}
 
+	//getLatestProducts
 	public List<ProductInfo> getLatestProducts() {
 		System.out.println("getLatestProducts");
 		List<ProductInfo> productInfos = new ArrayList<ProductInfo>();
@@ -105,13 +107,13 @@ public class ProductInfoDao {
 		System.out.println(productInfos);
 		return productInfos;
 	}
-
+	//randomGetAllProducts
 	public List<ProductInfo> randomGetAllProducts() {
 		System.out.println("randomGetAllProducts");
 		List<ProductInfo> productInfos = new ArrayList<ProductInfo>();
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM `product_info` ORDER BY RAND();");
+			ResultSet rs = statement.executeQuery("SELECT * FROM product_info ORDER BY RAND();");
 			while (rs.next()) {
 				ProductInfo productInfo = new ProductInfo();
 				productInfo.setProductId(rs.getInt(1));
@@ -130,5 +132,48 @@ public class ProductInfoDao {
 		}
 		System.out.println(productInfos);
 		return productInfos;
+	}
+	
+	//getProductInfoById
+	public ProductInfo getProductInfoById(int product_id) {
+		System.out.println("getProductInfoById");
+		ProductInfo productInfo = new ProductInfo();
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(
+					"select * from product_info where product_id = ?;");
+			preparedStatement.setInt(1, product_id);
+			ResultSet rs = preparedStatement.executeQuery();
+			while (rs.next()) {
+				productInfo.setProductId(rs.getInt(1));
+				productInfo.setProductName(rs.getString(2));
+				productInfo.setProductPicture(rs.getString(4));
+				productInfo.setProductPrice(rs.getString(3));
+				productInfo.setSellerPicture(rs.getString(5));
+				productInfo.setSellerAddress(rs.getString(7));
+				productInfo.setSellerName(rs.getString(6));
+				productInfo.setProductDescription(rs.getString(10));
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return productInfo;
+	}
+	
+	public void addProductInfo(ProductInfo productInfo) {
+		System.out.println("addProductInfo");
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(
+					"insert into product_info(product_name, product_price, product_picture, product_type, product_info) values (?, ?, ?, ?, ?)");
+			preparedStatement.setString(1, productInfo.getProductName());
+			preparedStatement.setString(2, productInfo.getProductPrice());
+			preparedStatement.setString(3, productInfo.getProductPicture());
+			preparedStatement.setString(4, productInfo.getProductType());
+			System.out.println(productInfo.getProductType());
+			preparedStatement.setString(5, productInfo.getProductDescription());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

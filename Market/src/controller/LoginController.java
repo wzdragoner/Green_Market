@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.jasper.tagplugins.jstl.core.Out;
 
+import dao.LoginDao;
 import dao.UserInfoDao;
 import model.UserInfo;
 
@@ -23,7 +24,9 @@ import model.UserInfo;
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String INDEX = "pages/indexStarter.jsp";
+	private static String LOGIN = "pages/login.jsp";
 	private UserInfoDao dao;
+	private LoginDao dao2;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -32,6 +35,7 @@ public class LoginController extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 		dao = new UserInfoDao();
+		dao2 = new LoginDao();
 	}
 
 	/**
@@ -51,7 +55,7 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		System.out.println("Login__doPost");
 		UserInfo userInfo = new UserInfo();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -67,15 +71,17 @@ public class LoginController extends HttpServlet {
 			System.out.println(userInfo.getUserName().equals(userInfo2.getUserName())
 					&& userInfo.getUserPassword().equals(userInfo2.getUserPassword()));
 			System.out.println("hahaha");
-			if (userInfo.getUserName().equals(userInfo2.getUserName())
-					&& userInfo.getUserPassword().equals(userInfo2.getUserPassword())) {
-				request.getSession().setAttribute("user", userInfo);
+			if (dao2.haveUserInfo(username, password) == 1) {
+				//request.getSession().setAttribute("user", userInfo);
 				RequestDispatcher view = request.getRequestDispatcher(INDEX);
 				view.forward(request, response);
 				return;
 			}
+			else {
+				RequestDispatcher view = request.getRequestDispatcher(LOGIN);
+				view.forward(request, response);
+			}
 		}
-		out.println("<h3>Login Flie</h3>");
 	}
 
 }

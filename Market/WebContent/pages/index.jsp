@@ -2,18 +2,21 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%
+	String path = request.getContextPath();
+	String serverPath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>index.jsp</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/main.css" type="text/css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/reset.css"
+<link rel="stylesheet" href="<%=basePath%>/css/main.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath%>/css/reset.css"
 	type="text/css" />
-<script
-	src="${pageContext.request.contextPath }/js/jquery-1.11.3.min.js"></script>
+<script src="<%=basePath%>/js/jquery-1.11.3.min.js"></script>
 <style type="text/css">
 * {
 	margin: 0;
@@ -69,14 +72,16 @@ img {
 </style>
 </head>
 <body>
-	<div class="headerBar">
+
+	<div class="headerBar comWidth">
 		<div class="topBar">
 			<div class="comWidth">
 				<div class="leftArea">
 					<a href="#" class="collection">Welcome！</a>
 				</div>
 				<div class="rightArea">
-					<a href="#">Where2eat</a><i>|</i><a href="login.jsp">Login</a><i>|</i><a
+					<a href="<%=basePath%>/pages/mypageStarter.jsp">My Home Page</a><i>|</i><a
+						href="#">Where2eat</a><i>|</i><a href="login.jsp">Login</a><i>|</i><a
 						href="register.jsp">Register</a>
 				</div>
 			</div>
@@ -86,15 +91,14 @@ img {
 		<div class="logoBar">
 			<div class="comWidth">
 				<div class="logo fl">
-					<a href="#"><img
-						src="${pageContext.request.contextPath }/images/SheffieldLogo.png"
-						width=140px height=59px alt="慕课网" /></a>
+					<a href="#"><img src="<%=basePath%>/images/SheffieldLogo.png"
+						width=140px height=59px alt="" /></a>
 				</div>
 				<div class="searchBox fl">
 					<input type="text" class="search_text fl"> <input
 						type="button" value="Search" class="search_btn fl" />
 				</div>
-				<div class="shopCar fr">
+				<div class="shopCar fr hide">
 					<span class="shopText fl">shopCar</span> <span class="shopNum fl">0</span>
 				</div>
 			</div>
@@ -110,8 +114,11 @@ img {
 					<div class="shopClass_show hide2">
 						<dl class="shopClass_item">
 							<dt>
-								<a href="#" class="b">Commodity</a> <a href="#" class="b"></a> <a
-									href="#" class="aLink">More</a>
+								<a
+									href="<%=basePath%>/ProductInfoController?action=p_type&product_type=commodity"
+									class="b">Commodity</a> <a href="#" class="b"></a> <a
+									href="<%=basePath%>/ProductInfoController?action=p_type&product_type=commodity"
+									class="aLink">More</a>
 							</dt>
 							<dd>
 								<a href="#">Clothes</a> <a href="#">Make-up</a>
@@ -120,8 +127,11 @@ img {
 
 						<dl class="shopClass_item">
 							<dt>
-								<a href="#" class="b">Accommodation</a> <a href="#" class="b"></a>
-								<a href="#" class="aLink">More</a>
+								<a
+									href="<%=basePath%>/ProductInfoController?action=p_type&product_type=accommodation"
+									class="b">Accommodation</a> <a href="#" class="b"></a> <a
+									href="<%=basePath%>/ProductInfoController?action=p_type&product_type=accommodation"
+									class="aLink">More</a>
 							</dt>
 							<dd>
 								<a href="#">En-suit</a> <a href="#">Studio</a>
@@ -130,8 +140,11 @@ img {
 
 						<dl class="shopClass_item">
 							<dt>
-								<a href="#" class="b">Electricity</a> <a href="#" class="b"></a>
-								<a href="#" class="aLink">More</a>
+								<a
+									href="<%=basePath%>/ProductInfoController?action=p_type&product_type=e_product"
+									class="b">Electricity</a> <a href="#" class="b"></a> <a
+									href="<%=basePath%>/ProductInfoController?action=p_type&product_type=e_product"
+									class="aLink">More</a>
 							</dt>
 							<dd>
 								<a href="#">Washing machine</a> <a href="#">Cleaner</a>
@@ -140,8 +153,11 @@ img {
 
 						<dl class="shopClass_item">
 							<dt>
-								<a href="#" class="b">Event</a> <a href="#" class="b"></a> <a
-									href="#" class="aLink">More</a>
+								<a
+									href="<%=basePath%>/ProductInfoController?action=p_type&product_type=tickets"
+									class="b">Event</a> <a href="#" class="b"></a> <a
+									href="<%=basePath%>/ProductInfoController?action=p_type&product_type=tickets"
+									class="aLink">More</a>
 							</dt>
 							<dd>
 								<a href="#">Concert</a> <a href="#">Party</a>
@@ -150,84 +166,21 @@ img {
 
 						<dl class="shopClass_item">
 							<dt>
-								<a href="#" class="b">Odds</a> <a href="#" class="b"></a> <a
-									href="#" class="aLink">More</a>
+								<a
+									href="<%=basePath%>/ProductInfoController?action=p_type&product_type=others"
+									class="b">Odds</a> <a href="#" class="b"></a> <a
+									href="<%=basePath%>/ProductInfoController?action=p_type&product_type=others"
+									class="aLink">More</a>
 							</dt>
 							<dd>
 								<a href="#">Transportation</a> <a href="#">Toy</a>
 							</dd>
 						</dl>
 					</div>
-					<div class="shopClass_list hide">
-						<div class="shopClass_cont">
-							<dl class="shopList_item">
-								<dt>电脑装机</dt>
-								<dd>
-									<a href="#">笔记本</a><a href="#">超极本</a><a href="#">上网本</a><a
-										href="#">平板电脑</a><a href="#">台式机</a>
-								</dd>
-							</dl>
-						</div>
-						<div class="shopClass_cont">
-							<dl class="shopList_item">
-								<dt>电脑配件</dt>
-								<dd>
-									<a href="#">CPU</a><a href="#">硬盘</a><a href="#">SSD固态硬盘</a><a
-										href="#">内存</a><a href="#">显示器</a><a href="#">智能显示器</a><a
-										href="#">主板</a><a href="#">显卡</a><a href="#">机箱</a><a href="#">电源</a><a
-										href="#">散热器</a><a href="#">刻录机/光驱</a><a href="#">声卡</a><a
-										href="#">拓展卡</a><a href="#">服务器配件</a><a href="#">DIY小附件</a><a
-										href="#">装机/配件安装</a>
-								</dd>
-							</dl>
-						</div>
-						<div class="shopClass_cont">
-							<dl class="shopList_item">
-								<dt>整机附件</dt>
-								<dd>
-									<a href="#">电脑包</a><a href="#">电脑桌</a><a href="#">电池</a><a
-										href="#">电源适配器</a><a href="#">贴膜</a><a href="#">清洁用品</a><a
-										href="#">笔记本散热</a><a href="#">USB拓展</a><a href="#">平板配件</a><a
-										href="#">特色配件</a><a href="#">插座网线/电话线</a><a href="#">影音线材</a><a
-										href="#">电脑线材</a>
-								</dd>
-							</dl>
-						</div>
-						<div class="shopClass_cont">
-							<dl class="shopList_item">
-								<dt>电脑外设</dt>
-								<dd>
-									<a href="#">鼠标</a><a href="#">键盘</a><a href="#">游戏外设</a><a
-										href="#">移动硬盘</a><a href="#">摄像头</a><a href="#">高清播放器</a><a
-										href="#">外置盒</a><a href="#">移动硬盘包</a><a href="#">手写板/绘画板</a>
-								</dd>
-							</dl>
-						</div>
-						<div class="shopClass_cont">
-							<dl class="shopList_item">
-								<dt>音频设备</dt>
-								<dd>
-									<a href="#">音响</a><a href="#">耳机/耳麦</a><a href="#">麦克风</a><a
-										href="#">声卡</a><a href="#">音频附件</a><a href="#">录音笔</a>
-								</dd>
-							</dl>
-							<div class="shopList_links">
-								<a href="#">电脑整机频道<span></span></a> <a href="#">硬件/外设频道<span></span></a>
-							</div>
-						</div>
-					</div>
 				</div>
-				<ul class="nav fl hide">
-					<li><a href="#" class="active">数码城</a></li>
-					<li><a href="#">天黑黑</a></li>
-					<li><a href="#">团购</a></li>
-					<li><a href="#">发现</a></li>
-					<li><a href="#">二手特卖</a></li>
-					<li><a href="#">名品会</a></li>
-				</ul>
 			</div>
+			<!--navBar结束-->
 		</div>
-		<!--navBar结束-->
 	</div>
 	<!--headerBar结束-->
 	<!--  
@@ -244,18 +197,18 @@ img {
         </div>
     </div>
     -->
-	<div class="banner comWidth clearfix id="banner_id_1">
+	<div class="banner comWidth clearfix id="">
 		<div class="banner_bar banner_big">
 			<ul class="imgBox">
 				<li><a href="#"><img
-						src="${pageContext.request.contextPath }/banner/banner_01.gif"
-						alt="banner" id="bannerImg1"></a></li>
+						src="<%=basePath%>/banner/banner.jpg" alt="banner"
+						id="bannerImg1"></a></li>
 				<li><a href="#"><img
-						src="${pageContext.request.contextPath }/banner/banner_01.gif"
-						alt="banner" id="bannerImg2"></a></li>
+						src="<%=basePath%>/banner/green_market.jpg" alt="banner"
+						id="bannerImg2"></a></li>
 				<li><a href="#"><img
-						src="${pageContext.request.contextPath }/banner/banner_01.gif"
-						alt="banner" id="bannerImg3"></a></li>
+						src="<%=basePath%>/banner/green_market2.jpg" alt="banner"
+						id="bannerImg3"></a></li>
 			</ul>
 			<div class="con"></div>
 
@@ -351,12 +304,11 @@ img {
 			<div class="banner_bar banner_sm">
 				<ul class="imgBox">
 
+					<li><a href="#"><img src="<%=basePath%>/banner/random.jpg"></a></li>
 					<li><a href="#"><img
-							src="${pageContext.request.contextPath }/banner/banner_sm_01.png"></a></li>
-					<li><a href="#"><img
-							src="${pageContext.request.contextPath }/banner/food_banner_sm_01.png"></a></li>
+							src="<%=basePath%>/banner/food_banner_sm_01.png"></a></li>
 				</ul>
-				<div class="imgNum">
+				<div class="imgNum hide">
 					<a href="#" class="active"></a> <a href="#"></a>
 				</div>
 			</div>
@@ -372,8 +324,8 @@ img {
 					<div class="shop_item">
 						<div class="shop_img">
 							<a
-								href="../ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
-								src="${productInfo.getProductPicture() }" alt="手机图片"></a>
+								href="<%=basePath%>/ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
+								src="<%=serverPath%>${productInfo.getProductPicture() }" alt=""></a>
 						</div>
 						<h3>${productInfo.getProductName() }</h3>
 						<p>${productInfo.getProductPrice() }</p>
@@ -386,8 +338,8 @@ img {
 					<div class="shopItem_sm">
 						<div class="shopItem_smImg">
 							<a
-								href="../ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
-								src="${productInfo.getSellerPicture() }"></a>
+								href="<%=basePath%>/ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
+								src="<%=serverPath%>${productInfo.getSellerPicture() }"></a>
 						</div>
 						<div class="shopItem_text">
 							<p>${productInfo.getSellerName() }</p>
@@ -408,12 +360,11 @@ img {
 			<div class="banner_bar banner_sm">
 				<ul class="imgBox">
 
+					<li><a href="#"><img src="<%=basePath%>/banner/latest.png"></a></li>
 					<li><a href="#"><img
-							src="${pageContext.request.contextPath }/banner/banner_sm_01.png"></a></li>
-					<li><a href="#"><img
-							src="${pageContext.request.contextPath }/banner/food_banner_sm_01.png"></a></li>
+							src="<%=basePath%>/banner/food_banner_sm_01.png"></a></li>
 				</ul>
-				<div class="imgNum">
+				<div class="imgNum hide">
 					<a href="#" class="active"></a> <a href="#"></a>
 				</div>
 			</div>
@@ -425,12 +376,12 @@ img {
 
 			<div class="shopList_top ">
 				<c:forEach items="${latest_productInfos}" var="productInfo"
-					begin="1" end="4" step="1">
+					begin="0" end="3" step="1">
 					<div class="shop_item">
 						<div class="shop_img">
 							<a
-								href="../ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
-								src="${productInfo.getProductPicture() }" alt="手机图片"></a>
+								href="<%=basePath%>/ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
+								src="${productInfo.getProductPicture() }" alt=""></a>
 						</div>
 						<h3>${productInfo.getProductName() }</h3>
 						<p>${productInfo.getProductPrice() }</p>
@@ -439,11 +390,11 @@ img {
 			</div>
 			<div class="shopList_sm clearfix">
 				<c:forEach items="${latest_productInfos}" var="productInfo"
-					begin="1" end="4" step="1">
+					begin="0" end="3" step="1">
 					<div class="shopItem_sm">
 						<div class="shopItem_smImg">
 							<a
-								href="../ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
+								href="<%=basePath%>/ProductDetailController?action=list&product_id=<c:out value="${productInfo.getProductId() }"/>"><img
 								src="${productInfo.getSellerPicture() }"></a>
 						</div>
 						<div class="shopItem_text">

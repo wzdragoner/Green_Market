@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.TransactionDao;
+import dao.UserInfoDao;
+import model.UserInfo;
 
 /**
  * Servlet implementation class TransactionController
@@ -19,6 +21,7 @@ public class TransactionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String LIST_TRANSACTION = "pages/mypage.jsp";
 	private TransactionDao dao;
+	private UserInfoDao dao2;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -27,6 +30,7 @@ public class TransactionController extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 		dao = new TransactionDao();
+		dao2 = new UserInfoDao();
 	}
 
 	/**
@@ -43,6 +47,12 @@ public class TransactionController extends HttpServlet {
 		if (action.equalsIgnoreCase("list")) {
 			forward = LIST_TRANSACTION;
 			request.setAttribute("transactions", dao.getAllTransaction());
+		}
+		else if (action.equalsIgnoreCase("get_user_by_id")) {
+			forward = LIST_TRANSACTION;
+			int user_id = Integer.parseInt(request.getParameter("user_id"));
+			UserInfo userInfo = dao2.getUserInfoById(user_id);
+			//request.setAttribute(arg0, arg1);
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);

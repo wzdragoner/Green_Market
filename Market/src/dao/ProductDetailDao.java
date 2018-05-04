@@ -28,7 +28,7 @@ public class ProductDetailDao {
 		List<String> productPictures = new ArrayList<String>();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"select product_picture from product_info left join product_picture on product_info.p_picture=product_picture.pp_id where product_info.product_id = ?;");
+					"select product_picture.pp_picture from product_info left join product_picture on product_info.p_picture=product_picture.pp_id where product_info.product_id = ?;");
 			preparedStatement.setInt(1, product_id);
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {

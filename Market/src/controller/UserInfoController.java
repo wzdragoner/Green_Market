@@ -20,6 +20,7 @@ public class UserInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String INSERT_OR_EDIT = "pages/register.jsp";
 	private static String LIST_USER = "pages/hahalist.jsp";
+	private static String MY_PAGE = "pages/mypageStarter.jsp";
 	private UserInfoDao dao;
 
 	/**

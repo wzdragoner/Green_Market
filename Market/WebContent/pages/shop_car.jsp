@@ -26,7 +26,7 @@
 		<div class="logoBar">
 			<div class="comWidth">
 				<div class="logo fl">
-					<a href="#"><img src="../images/logo.jpg" alt="慕课网" /></a>
+					<a href="#"><img src="../images/logo.jpg" alt="" /></a>
 				</div>
 				<div class="stepBox fr">
 					<div class="step"></div>

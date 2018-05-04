@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>login.jsp</title>
-<link href="../css/main.css" rel="stylesheet" type="text/css" />
-<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>/css/main.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>/css/reset.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -27,8 +32,8 @@
 		<div class="logoBar login_logo">
 			<div class="comWidth">
 				<div class="logo fl">
-					<a href="#"><img src="../images/SheffieldLogo.png" width=140px
-						height=59px alt="慕课网" /></a>
+					<a href="#"><img src="<%=basePath%>/images/SheffieldLogo.png" width=140px
+						height=59px alt="" /></a>
 				</div>
 				<h3 class="welcome_title">Login</h3>
 			</div>
@@ -39,7 +44,7 @@
 
 	<div class="loginBox">
 		<div class="login_cont">
-			<form action="/Market/LoginController" method="post">
+			<form action="http://localhost:8888/Market/LoginController" method="post">
 				<ul class="login">
 					<li class="l_tit">E-mail/Username</li>
 					<li class="mb_10"><input type="text"

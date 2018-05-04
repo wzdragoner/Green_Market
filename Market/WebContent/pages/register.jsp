@@ -2,16 +2,20 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>register.jsp</title>
 
+<link rel="stylesheet" href="<%=basePath%>/css/main.css" type="text/css" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/main.css" type="text/css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/reset.css"
+	href="<%=basePath%>/css/reset.css"
 	type="text/css" />
 </head>
 <body>
@@ -33,8 +37,8 @@
 			<div class="comWidth">
 				<div class="logo fl">
 					<a href="#"><img
-						src="${pageContext.request.contextPath }/images/SheffieldLogo.png"
-						width=140px height=59px alt="慕课网" /></a>
+						src="<%=basePath%>/images/SheffieldLogo.png"
+						width=140px height=59px alt="" /></a>
 				</div>
 				<h3 class="welcome_title">Welcome to registration</h3>
 			</div>
@@ -67,11 +71,6 @@
 							<input type="text" class="login_input user_icon"
 								name="user_password"
 								value="<c:out value = "${userInfo.getUserPassword()}" />" />
-						</div></li>
-
-					<li><span class="reg_item"><i>*</i>ConfirmPas:</span>
-					<div class="input_item">
-							<input type="text" class="login_input user_icon" />
 						</div></li>
 
 					<li><span class="reg_item"> <i>*</i>E-mail:
