@@ -35,7 +35,7 @@
 		<div class="logoBar">
 			<div class="comWidth">
 				<div class="logo fl">
-					<a href="#"><img
+					<a href="<%=basePath%>/pages/indexStarter.jsp"><img
 						src="<%=basePath%>/images/SheffieldLogo.png"
 						width=140px height=59px alt="" /></a>
 				</div>

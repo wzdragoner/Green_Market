@@ -36,7 +36,7 @@
 		<div class="logoBar">
 			<div class="comWidth">
 				<div class="logo fl">
-					<a href="#"><img src="<%=basePath%>/images/SheffieldLogo.png"
+					<a href="<%=basePath%>/pages/indexStarter.jsp"><img src="<%=basePath%>/images/SheffieldLogo.png"
 						width=140px height=59px alt="" /></a>
 				</div>
 				<div class="searchBox fl">
@@ -63,7 +63,7 @@
 	</div>
 	<!--headerBar结束-->
 	<div class="userPosition comWidth">
-		<strong><a href="#">Index</a></strong> <span>&nbsp;&gt;&nbsp;</span> <em>Detail</em>
+		<strong><a href="<%=basePath%>/pages/indexStarter.jsp">Index</a></strong> <span>&nbsp;&gt;&nbsp;</span> <em>Detail</em>
 	</div>
 	<div class="description_info comWidth">
 		<div class="description clearfix">
